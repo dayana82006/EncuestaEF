@@ -20,7 +20,7 @@ namespace Infrastructure.Configuration;
                    .HasForeignKey(co => co.CategoriesCatalogId)
                    .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasMany(c => c.OptionsQuestions)
+            builder.HasMany(c => c.OptionQuestions)
                    .WithOne(oq => oq.CategoriesCatalog)
                    .HasForeignKey(oq => oq.CategoriesCatalogId)
                    .OnDelete(DeleteBehavior.Cascade);

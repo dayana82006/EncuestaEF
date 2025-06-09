@@ -13,7 +13,7 @@ namespace Infrastructure.Configuration;
 
             builder.HasKey(co => co.Id);
 
-            builder.Property(co => co.OptionResponseId)
+            builder.Property(co => co.OptionsResponseId)
                    .IsRequired();
 
             builder.HasOne(co => co.CategoriesCatalog)

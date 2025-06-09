@@ -1,7 +1,7 @@
+using ApiProject.Extensions;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using ApiP.Extensions;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,7 +27,7 @@ var connectionString = builder.Configuration.GetConnectionString("ConexMySql");
 if (string.IsNullOrWhiteSpace(connectionString))
     throw new InvalidOperationException("La cadena de conexión 'ConexMySql' no está configurada.");
 
-builder.Services.AddDbContext<ProjectDbContext>(options =>
+builder.Services.AddDbContext<PublicDbContext>(options =>
 {
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
     options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking); // Opcional
