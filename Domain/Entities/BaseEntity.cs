@@ -1,8 +1,8 @@
-namespace Domain.Entities;
-
-public abstract class BaseEntity
+namespace Domain.Entities
 {
-    public DateTime CreatedAt { get; set; }
-    public DateTime UpdatedAt { get; set; }
-    public DateTime? DeletedAt { get; set; }
+    public abstract class BaseEntity
+    {
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
+    }
 }

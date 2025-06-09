@@ -2,8 +2,9 @@ using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure.Configuration
-{
+namespace Infrastructure.Configuration;
+
+   
     public class CategoryOptionsConfiguration : IEntityTypeConfiguration<CategoryOptions>
     {
         public void Configure(EntityTypeBuilder<CategoryOptions> builder)
@@ -22,4 +23,5 @@ namespace Infrastructure.Configuration
 
         }
     }
-}
+
+

@@ -1,7 +1,7 @@
+using Application.Interfaces;
 using Domain.Entities;
 
-namespace Application.Interface;
-
+namespace Application.Interfaces;
 public interface ICategoriesCatalogRepository : IGenericRepository<CategoriesCatalog>
 {
     

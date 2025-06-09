@@ -3,24 +3,26 @@ using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace Infrastructure.Configuration;
-
-public class CategoriesCatalogConfiguration
-{
-    public void Configure(EntityTypeBuilder<CategoriesCatalog> builder)
+  public class CategoriesCatalogConfiguration : IEntityTypeConfiguration<CategoriesCatalog>
     {
-        builder.ToTable("CategoriesCatalog");
+        public void Configure(EntityTypeBuilder<CategoriesCatalog> builder)
+        {
+            builder.ToTable("CategoriesCatalog");
 
-        builder.HasKey(c => c.Id);
+            builder.HasKey(c => c.Id);
 
-        builder.Property(c => c.Name)
-            .IsRequired()
-            .HasMaxLength(100);
+            builder.Property(c => c.Name)
+                   .IsRequired()
+                   .HasMaxLength(200);
 
-        builder.Property(c => c.CreatedAt)
-            .IsRequired();
+            builder.HasMany(c => c.CategoryOptions)
+                   .WithOne(co => co.CategoriesCatalog)
+                   .HasForeignKey(co => co.CategoriesCatalogId)
+                   .OnDelete(DeleteBehavior.Cascade);
 
-        builder.Property(c => c.UpdatedAt)
-            .IsRequired();
-
+            builder.HasMany(c => c.OptionsQuestions)
+                   .WithOne(oq => oq.CategoriesCatalog)
+                   .HasForeignKey(oq => oq.CategoriesCatalogId)
+                   .OnDelete(DeleteBehavior.Cascade);
+        }
     }
-}

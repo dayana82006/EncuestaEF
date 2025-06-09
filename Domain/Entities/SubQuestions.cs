@@ -1,12 +1,17 @@
-namespace Domain.Entities;
-
-public class SubQuestions : BaseEntity
+namespace Domain.Entities
 {
-    public int Id { get; set; }
-    public int SubQuestionId { get; set; }
-    public string SubQuestionNumber { get; set; }
-    public string CommentSubQuestion { get; set; }
-    public string SubQuestionText { get; set; }
+    public class SubQuestions : BaseEntity
+    {
+        public int Id { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
+        public string? SubquestionNumber { get; set; }
+        public string? CommentSubQuestion { get; set; }
+        public string? SubquestionText { get; set; }
 
-    public ICollection<OptionsQuestions>? OptionsQuestions { get; set; }
+        public List<OptionQuestions> OptionQuestions { get; set; } = new List<OptionQuestions>();
+
+        public int QuestionId { get; set; }
+        public Questions? Questions { get; set; }
+    }
 }
