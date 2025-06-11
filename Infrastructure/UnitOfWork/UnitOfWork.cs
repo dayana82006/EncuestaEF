@@ -16,6 +16,11 @@ public class UnitOfWork : IUnitOfWork, IDisposable
     private ISubQuestionsRepository? _subQuestions;
     private ISumaryOptionsRepository? _sumaryOptions;
     private ISurveysRepository? _surveys;
+    private IMemberRepository? _members;
+
+    private IRolRepository? _rols;
+    private IMemberRolRepository? _memberRols;
+    
 
     public UnitOfWork(PublicDbContext context)
     {

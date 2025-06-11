@@ -3,8 +3,6 @@ namespace Domain.Entities
     public class Questions : BaseEntity
     {
         public int Id { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
         public string? QuestionNumber { get; set; }
         public string? ResponseType { get; set; }
         public string? CommentQuestion { get; set; }
